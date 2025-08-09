@@ -1,0 +1,45 @@
+### Criar um novo usuário
+POST http://localhost:8080/usuarios
+Content-Type: application/json
+
+{
+  "nome": "Thainara Costa",
+  "email": "thainara@exemplo.com",
+  "cpf": "12345678900",
+  "conta": {
+    "numero": "00012345",
+    "saldo": 1000
+  }
+}
+
+### Depositar R$100 na conta do usuário com ID 1
+POST http://localhost:8080/contas/depositar
+Content-Type: application/json
+
+{
+  "contaId": 1,
+  "valor": 100
+}
+
+###
+GET http://localhost:8080/contas
+Content-Type: application/json
+
+### Sacar R$50 da conta do usuário com ID 1
+POST http://localhost:8080/contas/sacar
+Content-Type: application/json
+
+{
+  "contaId": 1,
+  "valor": 50
+}
+
+### Transferir R$50 da conta do usuário com ID 1 para a conta usuário com ID 2
+POST http://localhost:8080/contas/transferir
+Content-Type: application/json
+
+{
+  "origemId": 1,
+  "destinoId": 2,
+  "valor": 50.0
+}
